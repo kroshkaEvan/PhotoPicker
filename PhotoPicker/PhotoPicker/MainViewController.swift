@@ -43,9 +43,13 @@ class MainViewController: UITabBarController {
     private func setupVCs() {
         viewControllers = [
             createNavController(for: PhotoViewController(),
-                                   title: "Home",
-                                   image: UIImage(systemName: "house"),
-                                   selectedImage: UIImage(systemName: "house.fill")),
+                                   title: "Photo library",
+                                   image: UIImage(systemName: "photo.on.rectangle.angled"),
+                                   selectedImage: UIImage(systemName: "photo.on.rectangle.fill")),
+            createNavController(for: FilterViewController(),
+                                   title: "",
+                                   image: UIImage(systemName: "paintbrush"),
+                                   selectedImage: UIImage(systemName: "paintbrush.fill")),
             createNavController(for: ProfileViewController(),
                                    title: "Profile",
                                    image: UIImage(systemName: "person"),

@@ -17,6 +17,14 @@
 		BCCDB41F27E9971400710321 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCCDB41E27E9971400710321 /* ProfileViewController.swift */; };
 		BCCDB42227E998D500710321 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCCDB42127E998D500710321 /* LoginViewController.swift */; };
 		BCCDB42427E998E500710321 /* RegistrationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCCDB42327E998E500710321 /* RegistrationViewController.swift */; };
+		BCCDB42627E99A8500710321 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = BCCDB42527E99A8500710321 /* GoogleService-Info.plist */; };
+		BCCDB42827E99B4D00710321 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCCDB42727E99B4D00710321 /* Constants.swift */; };
+		BCCDB42B27E99BB000710321 /* AuthManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCCDB42A27E99BB000710321 /* AuthManager.swift */; };
+		BCCDB42D27E99BEE00710321 /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCCDB42C27E99BEE00710321 /* DataManager.swift */; };
+		BCCDB42F27E99C5B00710321 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCCDB42E27E99C5B00710321 /* Extensions.swift */; };
+		BCCDB43127E9C13000710321 /* FilterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCCDB43027E9C13000710321 /* FilterViewController.swift */; };
+		BCCDB43427E9C9B300710321 /* ImageCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCCDB43327E9C9B300710321 /* ImageCollectionViewCell.swift */; };
+		BCCDB43627E9CE4F00710321 /* Image.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCCDB43527E9CE4F00710321 /* Image.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -33,6 +41,14 @@
 		BCCDB41E27E9971400710321 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		BCCDB42127E998D500710321 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		BCCDB42327E998E500710321 /* RegistrationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationViewController.swift; sourceTree = "<group>"; };
+		BCCDB42527E99A8500710321 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		BCCDB42727E99B4D00710321 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		BCCDB42A27E99BB000710321 /* AuthManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthManager.swift; sourceTree = "<group>"; };
+		BCCDB42C27E99BEE00710321 /* DataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
+		BCCDB42E27E99C5B00710321 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		BCCDB43027E9C13000710321 /* FilterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterViewController.swift; sourceTree = "<group>"; };
+		BCCDB43327E9C9B300710321 /* ImageCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCollectionViewCell.swift; sourceTree = "<group>"; };
+		BCCDB43527E9CE4F00710321 /* Image.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Image.swift; sourceTree = "<group>"; };
 		F081B0E5FDF67FA062C58B35 /* Pods-PhotoPicker.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PhotoPicker.release.xcconfig"; path = "Target Support Files/Pods-PhotoPicker/Pods-PhotoPicker.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -54,7 +70,6 @@
 				883D81DAE1FA5AAD4008AC75 /* Pods-PhotoPicker.debug.xcconfig */,
 				F081B0E5FDF67FA062C58B35 /* Pods-PhotoPicker.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -87,15 +102,20 @@
 		BCCDB40727E9966300710321 /* PhotoPicker */ = {
 			isa = PBXGroup;
 			children = (
+				BCCDB41C27E996AF00710321 /* MainViewController.swift */,
+				BCCDB43227E9C13900710321 /* Tabs */,
+				BCCDB42927E99B8C00710321 /* Models */,
 				BCCDB42027E998B400710321 /* Auth */,
 				BCCDB40827E9966300710321 /* AppDelegate.swift */,
 				BCCDB40A27E9966300710321 /* SceneDelegate.swift */,
-				BCCDB40C27E9966300710321 /* PhotoViewController.swift */,
-				BCCDB41E27E9971400710321 /* ProfileViewController.swift */,
-				BCCDB41C27E996AF00710321 /* MainViewController.swift */,
 				BCCDB41127E9966B00710321 /* Assets.xcassets */,
 				BCCDB41327E9966B00710321 /* LaunchScreen.storyboard */,
 				BCCDB41627E9966B00710321 /* Info.plist */,
+				BCCDB42527E99A8500710321 /* GoogleService-Info.plist */,
+				BCCDB42727E99B4D00710321 /* Constants.swift */,
+				BCCDB42E27E99C5B00710321 /* Extensions.swift */,
+				BCCDB43327E9C9B300710321 /* ImageCollectionViewCell.swift */,
+				BCCDB43527E9CE4F00710321 /* Image.swift */,
 			);
 			path = PhotoPicker;
 			sourceTree = "<group>";
@@ -107,6 +127,25 @@
 				BCCDB42327E998E500710321 /* RegistrationViewController.swift */,
 			);
 			path = Auth;
+			sourceTree = "<group>";
+		};
+		BCCDB42927E99B8C00710321 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				BCCDB42A27E99BB000710321 /* AuthManager.swift */,
+				BCCDB42C27E99BEE00710321 /* DataManager.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		BCCDB43227E9C13900710321 /* Tabs */ = {
+			isa = PBXGroup;
+			children = (
+				BCCDB40C27E9966300710321 /* PhotoViewController.swift */,
+				BCCDB41E27E9971400710321 /* ProfileViewController.swift */,
+				BCCDB43027E9C13000710321 /* FilterViewController.swift */,
+			);
+			path = Tabs;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -170,6 +209,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BCCDB41527E9966B00710321 /* LaunchScreen.storyboard in Resources */,
+				BCCDB42627E99A8500710321 /* GoogleService-Info.plist in Resources */,
 				BCCDB41227E9966B00710321 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -224,12 +264,19 @@
 			buildActionMask = 2147483647;
 			files = (
 				BCCDB42227E998D500710321 /* LoginViewController.swift in Sources */,
+				BCCDB42D27E99BEE00710321 /* DataManager.swift in Sources */,
+				BCCDB43427E9C9B300710321 /* ImageCollectionViewCell.swift in Sources */,
+				BCCDB42B27E99BB000710321 /* AuthManager.swift in Sources */,
 				BCCDB40D27E9966300710321 /* PhotoViewController.swift in Sources */,
 				BCCDB40927E9966300710321 /* AppDelegate.swift in Sources */,
 				BCCDB41F27E9971400710321 /* ProfileViewController.swift in Sources */,
+				BCCDB43627E9CE4F00710321 /* Image.swift in Sources */,
+				BCCDB43127E9C13000710321 /* FilterViewController.swift in Sources */,
 				BCCDB42427E998E500710321 /* RegistrationViewController.swift in Sources */,
 				BCCDB40B27E9966300710321 /* SceneDelegate.swift in Sources */,
 				BCCDB41D27E996AF00710321 /* MainViewController.swift in Sources */,
+				BCCDB42F27E99C5B00710321 /* Extensions.swift in Sources */,
+				BCCDB42827E99B4D00710321 /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

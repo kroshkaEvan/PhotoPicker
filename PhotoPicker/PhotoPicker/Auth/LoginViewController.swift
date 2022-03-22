@@ -12,7 +12,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     
     private lazy var imageView: UIImageView = {
         let imageView = UIImageView()
-        imageView.image = Constants.Image.darkTitle
+        imageView.image = Constants.Image.iconTitle
         imageView.contentMode = .scaleAspectFill
         imageView.translatesAutoresizingMaskIntoConstraints = false
         return imageView
@@ -72,15 +72,15 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         return button
     }()
     
-    private lazy var sectionLabel: UILabel = {
-        let label = UILabel()
-        label.text = "----------------    OR    ----------------"
-        label.textAlignment = .center
-        label.textColor = .secondaryLabel
-        label.font = .systemFont(ofSize: 18)
-        label.translatesAutoresizingMaskIntoConstraints = false
-        return label
-    }()
+//    private lazy var sectionLabel: UILabel = {
+//        let label = UILabel()
+//        label.text = "----------------    OR    ----------------"
+//        label.textAlignment = .center
+//        label.textColor = .secondaryLabel
+//        label.font = .systemFont(ofSize: 18)
+//        label.translatesAutoresizingMaskIntoConstraints = false
+//        return label
+//    }()
     
     private lazy var stackView: UIStackView = {
         let stackView = UIStackView()
@@ -88,19 +88,9 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         return stackView
     }()
     
-    private lazy var registrationLabel: UILabel = {
-        let label = UILabel()
-        label.text = "Don't have an account?"
-        label.textAlignment = .center
-        label.textColor = .lightGray
-        label.font = .systemFont(ofSize: 14)
-        label.translatesAutoresizingMaskIntoConstraints = false
-        return label
-    }()
-    
     private lazy var registrationButton: UIButton = {
         let button = UIButton()
-        button.setTitle("Sign up.", for: .normal)
+        button.setTitle("Don't have an account? Sign up.", for: .normal)
         button.setTitleColor(.blue, for: .normal)
         button.titleLabel?.font = .systemFont(ofSize: 14)
         button.translatesAutoresizingMaskIntoConstraints = false
@@ -110,8 +100,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         imageView.isUserInteractionEnabled = true
-        sectionLabel.isUserInteractionEnabled = true
-        registrationLabel.isUserInteractionEnabled = true
+//        sectionLabel.isUserInteractionEnabled = true
         emailOrNameTextField.delegate = self
         passwordTextField.delegate = self
         loginButton.addTarget(self,
@@ -171,8 +160,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     
     private func setupVC() {
         view.backgroundColor = .systemBackground
-        [imageView, emailOrNameTextField, passwordTextField, loginButton, sectionLabel, stackView].forEach { view.addSubview($0) }
-        [registrationLabel, registrationButton].forEach { stackView.addSubview($0) }
+        [imageView, emailOrNameTextField, passwordTextField, loginButton, registrationButton].forEach { view.addSubview($0) }
 
         imageView.topAnchor.constraint(equalToSystemSpacingBelow: view.safeAreaLayoutGuide.topAnchor,
                                        multiplier: 25).isActive = true
@@ -202,28 +190,20 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
                                               multiplier: 0.9).isActive = true
         loginButton.heightAnchor.constraint(equalTo: view.safeAreaLayoutGuide.heightAnchor,
                                                multiplier: 0.06).isActive = true
-        sectionLabel.topAnchor.constraint(equalTo: loginButton.bottomAnchor,
-                                            constant: 15).isActive = true
-        sectionLabel.centerXAnchor.constraint(equalTo: view.safeAreaLayoutGuide.centerXAnchor).isActive = true
-        sectionLabel.widthAnchor.constraint(equalTo: view.safeAreaLayoutGuide.widthAnchor,
-                                              multiplier: 0.9).isActive = true
-        sectionLabel.heightAnchor.constraint(equalTo: view.safeAreaLayoutGuide.heightAnchor,
-                                               multiplier: 0.06).isActive = true
-        stackView.bottomAnchor.constraint(equalTo: view.bottomAnchor,
+//        sectionLabel.topAnchor.constraint(equalTo: loginButton.bottomAnchor,
+//                                            constant: 15).isActive = true
+//        sectionLabel.centerXAnchor.constraint(equalTo: view.safeAreaLayoutGuide.centerXAnchor).isActive = true
+//        sectionLabel.widthAnchor.constraint(equalTo: view.safeAreaLayoutGuide.widthAnchor,
+//                                              multiplier: 0.9).isActive = true
+//        sectionLabel.heightAnchor.constraint(equalTo: view.safeAreaLayoutGuide.heightAnchor,
+//                                               multiplier: 0.06).isActive = true
+        registrationButton.bottomAnchor.constraint(equalTo: view.bottomAnchor,
                                             constant: -30).isActive = true
-        stackView.centerXAnchor.constraint(equalTo: view.safeAreaLayoutGuide.centerXAnchor).isActive = true
-        stackView.heightAnchor.constraint(equalTo: view.safeAreaLayoutGuide.heightAnchor,
+        registrationButton.centerXAnchor.constraint(equalTo: view.safeAreaLayoutGuide.centerXAnchor).isActive = true
+        registrationButton.heightAnchor.constraint(equalTo: view.safeAreaLayoutGuide.heightAnchor,
                                                multiplier: 0.08).isActive = true
-        stackView.widthAnchor.constraint(equalTo: view.safeAreaLayoutGuide.widthAnchor,
+        registrationButton.widthAnchor.constraint(equalTo: view.safeAreaLayoutGuide.widthAnchor,
                                               multiplier: 0.6).isActive = true
-        registrationLabel.bottomAnchor.constraint(equalTo: stackView.bottomAnchor).isActive = true
-        registrationLabel.heightAnchor.constraint(equalTo: stackView.safeAreaLayoutGuide.heightAnchor,
-                                               multiplier: 1).isActive = true
-        registrationButton.leadingAnchor.constraint(equalTo: registrationLabel.trailingAnchor,
-                                                    constant: 5).isActive = true
-        registrationButton.bottomAnchor.constraint(equalTo: stackView.bottomAnchor).isActive = true
-        registrationButton.heightAnchor.constraint(equalTo: stackView.safeAreaLayoutGuide.heightAnchor,
-                                               multiplier: 1).isActive = true
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
