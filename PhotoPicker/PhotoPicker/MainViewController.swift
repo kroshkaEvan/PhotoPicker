@@ -18,8 +18,8 @@ class MainViewController: UITabBarController {
     
     override func tabBar(_ tabBar: UITabBar, didSelect item: UITabBarItem) {
         guard let barItemView = item.value(forKey: "view") as? UIView else { return }
-        let scalingRatio = CGFloat(0.5)
-        let propertyAnimator = UIViewPropertyAnimator(duration: 0.4,
+        let scalingRatio = CGFloat(0.7)
+        let propertyAnimator = UIViewPropertyAnimator(duration: 0.3,
                                                       dampingRatio: 0.5) {
             barItemView.transform = CGAffineTransform.identity.scaledBy(x: scalingRatio,
                                                                         y: scalingRatio)

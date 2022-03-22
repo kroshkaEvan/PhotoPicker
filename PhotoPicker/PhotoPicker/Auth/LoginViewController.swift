@@ -163,12 +163,12 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         [imageView, emailOrNameTextField, passwordTextField, loginButton, registrationButton].forEach { view.addSubview($0) }
 
         imageView.topAnchor.constraint(equalToSystemSpacingBelow: view.safeAreaLayoutGuide.topAnchor,
-                                       multiplier: 25).isActive = true
+                                       multiplier: 5).isActive = true
         imageView.centerXAnchor.constraint(equalTo: view.safeAreaLayoutGuide.centerXAnchor).isActive = true
         imageView.widthAnchor.constraint(equalTo: view.widthAnchor,
-                                         multiplier: 0.07).isActive = true
+                                         multiplier: 0.2).isActive = true
         imageView.heightAnchor.constraint(equalTo: view.heightAnchor,
-                                          multiplier: 0.07).isActive = true
+                                          multiplier: 0.2).isActive = true
         emailOrNameTextField.topAnchor.constraint(equalTo: imageView.bottomAnchor,
                                             constant: 30).isActive = true
         emailOrNameTextField.centerXAnchor.constraint(equalTo: view.safeAreaLayoutGuide.centerXAnchor).isActive = true

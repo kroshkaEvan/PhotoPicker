@@ -141,16 +141,16 @@ class RegistrationViewController: UIViewController, UITextFieldDelegate {
         AuthManager.shared.registrationNewUser(userName: username,
                                                email: email,
                                                password: password) { [weak self] successfulRegistration in
-            DispatchQueue.main.async {
-                if successfulRegistration {
+//            DispatchQueue.main.async {
+//                if successfulRegistration {
                     let mainVC = MainViewController()
                     mainVC.modalPresentationStyle = .fullScreen
                     self?.present(mainVC, animated: true)
-                } else {
-                    self?.alertLogin(error: "The mail is already busy")
-                    print("error registration")
-                }
-            }
+//                } else {
+//                    self?.alertLogin(error: "The mail is already busy")
+//                    print("error registration")
+//                }
+//            }
         }
     }
     

@@ -26,7 +26,7 @@ class ProfileViewController: UIViewController {
     }
     
     @objc private func presentActionSheet() {
-        let actionSheet = UIAlertController(title: "",
+        let actionSheet = UIAlertController(title: "Settings",
                                             message: "",
                                             preferredStyle: .actionSheet)
         actionSheet.addAction(UIAlertAction(title: "Help",
@@ -38,6 +38,9 @@ class ProfileViewController: UIViewController {
         actionSheet.addAction(UIAlertAction(title: "Log Out",
                                             style: .destructive,
                                             handler: { [weak self] _ in self?.alertLogOut()}))
+        actionSheet.addAction(UIAlertAction(title: "Back",
+                                            style: .cancel,
+                                            handler: nil))
         actionSheet.modalPresentationStyle = .currentContext
         present(actionSheet, animated: true)
     }
