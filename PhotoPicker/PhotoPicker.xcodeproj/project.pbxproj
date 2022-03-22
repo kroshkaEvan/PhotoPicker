@@ -25,6 +25,7 @@
 		BCCDB43127E9C13000710321 /* FilterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCCDB43027E9C13000710321 /* FilterViewController.swift */; };
 		BCCDB43427E9C9B300710321 /* ImageCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCCDB43327E9C9B300710321 /* ImageCollectionViewCell.swift */; };
 		BCCDB43627E9CE4F00710321 /* Image.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCCDB43527E9CE4F00710321 /* Image.swift */; };
+		BCCDB43827E9E59500710321 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCCDB43727E9E59500710321 /* SearchViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -49,6 +50,7 @@
 		BCCDB43027E9C13000710321 /* FilterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterViewController.swift; sourceTree = "<group>"; };
 		BCCDB43327E9C9B300710321 /* ImageCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCollectionViewCell.swift; sourceTree = "<group>"; };
 		BCCDB43527E9CE4F00710321 /* Image.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Image.swift; sourceTree = "<group>"; };
+		BCCDB43727E9E59500710321 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		F081B0E5FDF67FA062C58B35 /* Pods-PhotoPicker.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PhotoPicker.release.xcconfig"; path = "Target Support Files/Pods-PhotoPicker/Pods-PhotoPicker.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -115,7 +117,6 @@
 				BCCDB42727E99B4D00710321 /* Constants.swift */,
 				BCCDB42E27E99C5B00710321 /* Extensions.swift */,
 				BCCDB43327E9C9B300710321 /* ImageCollectionViewCell.swift */,
-				BCCDB43527E9CE4F00710321 /* Image.swift */,
 			);
 			path = PhotoPicker;
 			sourceTree = "<group>";
@@ -132,6 +133,7 @@
 		BCCDB42927E99B8C00710321 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				BCCDB43527E9CE4F00710321 /* Image.swift */,
 				BCCDB42A27E99BB000710321 /* AuthManager.swift */,
 				BCCDB42C27E99BEE00710321 /* DataManager.swift */,
 			);
@@ -141,11 +143,44 @@
 		BCCDB43227E9C13900710321 /* Tabs */ = {
 			isa = PBXGroup;
 			children = (
-				BCCDB40C27E9966300710321 /* PhotoViewController.swift */,
-				BCCDB41E27E9971400710321 /* ProfileViewController.swift */,
-				BCCDB43027E9C13000710321 /* FilterViewController.swift */,
+				BCCDB43E27E9E89300710321 /* Search */,
+				BCCDB43D27E9E88700710321 /* Filter */,
+				BCCDB43C27E9E87300710321 /* Photo */,
+				BCCDB43B27E9E85C00710321 /* Profile */,
 			);
 			path = Tabs;
+			sourceTree = "<group>";
+		};
+		BCCDB43B27E9E85C00710321 /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				BCCDB41E27E9971400710321 /* ProfileViewController.swift */,
+			);
+			path = Profile;
+			sourceTree = "<group>";
+		};
+		BCCDB43C27E9E87300710321 /* Photo */ = {
+			isa = PBXGroup;
+			children = (
+				BCCDB40C27E9966300710321 /* PhotoViewController.swift */,
+			);
+			path = Photo;
+			sourceTree = "<group>";
+		};
+		BCCDB43D27E9E88700710321 /* Filter */ = {
+			isa = PBXGroup;
+			children = (
+				BCCDB43027E9C13000710321 /* FilterViewController.swift */,
+			);
+			path = Filter;
+			sourceTree = "<group>";
+		};
+		BCCDB43E27E9E89300710321 /* Search */ = {
+			isa = PBXGroup;
+			children = (
+				BCCDB43727E9E59500710321 /* SearchViewController.swift */,
+			);
+			path = Search;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -263,6 +298,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BCCDB43827E9E59500710321 /* SearchViewController.swift in Sources */,
 				BCCDB42227E998D500710321 /* LoginViewController.swift in Sources */,
 				BCCDB42D27E99BEE00710321 /* DataManager.swift in Sources */,
 				BCCDB43427E9C9B300710321 /* ImageCollectionViewCell.swift in Sources */,

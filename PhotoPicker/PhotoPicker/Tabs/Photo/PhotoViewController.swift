@@ -46,14 +46,10 @@ class PhotoViewController: UIViewController {
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add,
                                                             target: self,
                                                             action: #selector(didTapAdd))
-        navigationItem.rightBarButtonItem?.tintColor = .green
+        navigationItem.rightBarButtonItem?.tintColor = .label
         photosCollectionView.dataSource = self
         photosCollectionView.delegate = self
         setupCollectionView()
-    }
-    
-    override func viewDidAppear(_ animated: Bool) {
-        checkStatusAuth()
     }
     
     private func setupCollectionView() {
@@ -71,14 +67,6 @@ class PhotoViewController: UIViewController {
         let pickerVC = PHPickerViewController(configuration: configuration)
         pickerVC.delegate = self
         present(pickerVC, animated: true)
-    }
-    
-    private func checkStatusAuth() {
-        if Auth.auth().currentUser == nil {
-            let loginVC = LoginViewController()
-            loginVC.modalPresentationStyle = .fullScreen
-            present(loginVC, animated: false)
-        }
     }
 }
 

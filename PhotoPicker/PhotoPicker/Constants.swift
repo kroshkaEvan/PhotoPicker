@@ -22,6 +22,7 @@ class Constants {
     
     class Image {
         static let iconTitle = UIImage(named: "icon")
+        static let infoImage = UIImage(systemName: "gearshape.2.fill")
     }
     
     class Dimensions {

@@ -18,7 +18,7 @@ class RegistrationViewController: UIViewController, UITextFieldDelegate {
     
     private lazy var helperLabel: UILabel = {
         let label = UILabel()
-        label.text = "Choose a username for your new account."
+        label.text = "Choose username"
         label.textAlignment = .center
         label.textColor = .lightGray
         label.numberOfLines = 2
@@ -144,6 +144,7 @@ class RegistrationViewController: UIViewController, UITextFieldDelegate {
             DispatchQueue.main.async {
                 if successfulRegistration {
                     let mainVC = MainViewController()
+                    mainVC.modalPresentationStyle = .fullScreen
                     self?.present(mainVC, animated: true)
                 } else {
                     self?.alertLogin(error: "The mail is already busy")

@@ -10,5 +10,4 @@ import UIKit
 
 class Image {
     static var images = [UIImage]()
-    
 }

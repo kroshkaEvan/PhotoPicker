@@ -141,7 +141,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         }
     }
     
-    private func alertLogin(error: String) {
+    func alertLogin(error: String) {
         let alertView = UIAlertController(title: "Oops",
                                           message: error,
                                           preferredStyle: .alert)
