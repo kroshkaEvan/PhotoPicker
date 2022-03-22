@@ -56,6 +56,7 @@ class PhotoViewController: UIViewController {
     }
     
     override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
         checkStatusAuth()
     }
     

@@ -25,13 +25,7 @@ class AuthManager {
                     }
                     DataManager.shared.addNewUser(email: email,
                                                   username: userName) { successfulInserted in
-                        if successfulInserted {
-                            completion(true)
-                            return
-                        } else {
-                            completion(false )
-                            return
-                        }
+                        completion(successfulInserted)
                     }
                 }
             } else {

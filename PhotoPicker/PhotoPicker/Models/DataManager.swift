@@ -18,13 +18,7 @@ class DataManager {
     
     func addNewUser(email: String, username: String, completion: @escaping (Bool) -> Void) {
         self.reference.child(email.safeDatabaseKey()).setValue(["username": username]) { error, _  in
-            if error == nil {
-                completion(true)
-                return
-            } else {
-                completion(false)
-                return
-            }
+            completion(error==nil)
         }
     }
 }

@@ -38,7 +38,7 @@ class ProfileViewController: UIViewController {
         actionSheet.addAction(UIAlertAction(title: "Log Out",
                                             style: .destructive,
                                             handler: { [weak self] _ in self?.alertLogOut()}))
-        actionSheet.addAction(UIAlertAction(title: "Back",
+        actionSheet.addAction(UIAlertAction(title: "Cancel",
                                             style: .cancel,
                                             handler: nil))
         actionSheet.modalPresentationStyle = .currentContext
