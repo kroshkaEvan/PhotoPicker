@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3E27838927FA9F35C6525287 /* Pods_PhotoPicker.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 74503194FC5C96CE1F775D82 /* Pods_PhotoPicker.framework */; };
 		BCCDB40927E9966300710321 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCCDB40827E9966300710321 /* AppDelegate.swift */; };
 		BCCDB40B27E9966300710321 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCCDB40A27E9966300710321 /* SceneDelegate.swift */; };
 		BCCDB40D27E9966300710321 /* PhotoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCCDB40C27E9966300710321 /* PhotoViewController.swift */; };
@@ -14,9 +15,13 @@
 		BCCDB41527E9966B00710321 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BCCDB41327E9966B00710321 /* LaunchScreen.storyboard */; };
 		BCCDB41D27E996AF00710321 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCCDB41C27E996AF00710321 /* MainViewController.swift */; };
 		BCCDB41F27E9971400710321 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCCDB41E27E9971400710321 /* ProfileViewController.swift */; };
+		BCCDB42227E998D500710321 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCCDB42127E998D500710321 /* LoginViewController.swift */; };
+		BCCDB42427E998E500710321 /* RegistrationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCCDB42327E998E500710321 /* RegistrationViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		74503194FC5C96CE1F775D82 /* Pods_PhotoPicker.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PhotoPicker.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		883D81DAE1FA5AAD4008AC75 /* Pods-PhotoPicker.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PhotoPicker.debug.xcconfig"; path = "Target Support Files/Pods-PhotoPicker/Pods-PhotoPicker.debug.xcconfig"; sourceTree = "<group>"; };
 		BCCDB40527E9966300710321 /* PhotoPicker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PhotoPicker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BCCDB40827E9966300710321 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BCCDB40A27E9966300710321 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -26,6 +31,9 @@
 		BCCDB41627E9966B00710321 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BCCDB41C27E996AF00710321 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		BCCDB41E27E9971400710321 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		BCCDB42127E998D500710321 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		BCCDB42327E998E500710321 /* RegistrationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationViewController.swift; sourceTree = "<group>"; };
+		F081B0E5FDF67FA062C58B35 /* Pods-PhotoPicker.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PhotoPicker.release.xcconfig"; path = "Target Support Files/Pods-PhotoPicker/Pods-PhotoPicker.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -33,17 +41,38 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3E27838927FA9F35C6525287 /* Pods_PhotoPicker.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		807AC4E211A570BCF64AE71A /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				883D81DAE1FA5AAD4008AC75 /* Pods-PhotoPicker.debug.xcconfig */,
+				F081B0E5FDF67FA062C58B35 /* Pods-PhotoPicker.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		9551DF4FF5B242E7782E0AE0 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				74503194FC5C96CE1F775D82 /* Pods_PhotoPicker.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		BCCDB3FC27E9966300710321 = {
 			isa = PBXGroup;
 			children = (
 				BCCDB40727E9966300710321 /* PhotoPicker */,
 				BCCDB40627E9966300710321 /* Products */,
+				807AC4E211A570BCF64AE71A /* Pods */,
+				9551DF4FF5B242E7782E0AE0 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -58,6 +87,7 @@
 		BCCDB40727E9966300710321 /* PhotoPicker */ = {
 			isa = PBXGroup;
 			children = (
+				BCCDB42027E998B400710321 /* Auth */,
 				BCCDB40827E9966300710321 /* AppDelegate.swift */,
 				BCCDB40A27E9966300710321 /* SceneDelegate.swift */,
 				BCCDB40C27E9966300710321 /* PhotoViewController.swift */,
@@ -70,6 +100,15 @@
 			path = PhotoPicker;
 			sourceTree = "<group>";
 		};
+		BCCDB42027E998B400710321 /* Auth */ = {
+			isa = PBXGroup;
+			children = (
+				BCCDB42127E998D500710321 /* LoginViewController.swift */,
+				BCCDB42327E998E500710321 /* RegistrationViewController.swift */,
+			);
+			path = Auth;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -77,9 +116,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = BCCDB41927E9966B00710321 /* Build configuration list for PBXNativeTarget "PhotoPicker" */;
 			buildPhases = (
+				0FEE1E0A258D0D99C9BC2FD9 /* [CP] Check Pods Manifest.lock */,
 				BCCDB40127E9966300710321 /* Sources */,
 				BCCDB40227E9966300710321 /* Frameworks */,
 				BCCDB40327E9966300710321 /* Resources */,
+				F62A22CBF6E1B186E2C8948A /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -135,14 +176,58 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		0FEE1E0A258D0D99C9BC2FD9 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-PhotoPicker-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F62A22CBF6E1B186E2C8948A /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-PhotoPicker/Pods-PhotoPicker-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-PhotoPicker/Pods-PhotoPicker-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-PhotoPicker/Pods-PhotoPicker-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		BCCDB40127E9966300710321 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BCCDB42227E998D500710321 /* LoginViewController.swift in Sources */,
 				BCCDB40D27E9966300710321 /* PhotoViewController.swift in Sources */,
 				BCCDB40927E9966300710321 /* AppDelegate.swift in Sources */,
 				BCCDB41F27E9971400710321 /* ProfileViewController.swift in Sources */,
+				BCCDB42427E998E500710321 /* RegistrationViewController.swift in Sources */,
 				BCCDB40B27E9966300710321 /* SceneDelegate.swift in Sources */,
 				BCCDB41D27E996AF00710321 /* MainViewController.swift in Sources */,
 			);
@@ -280,6 +365,7 @@
 		};
 		BCCDB41A27E9966B00710321 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 883D81DAE1FA5AAD4008AC75 /* Pods-PhotoPicker.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -308,6 +394,7 @@
 		};
 		BCCDB41B27E9966B00710321 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = F081B0E5FDF67FA062C58B35 /* Pods-PhotoPicker.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
