@@ -22,7 +22,7 @@
 		BCCDB42B27E99BB000710321 /* AuthManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCCDB42A27E99BB000710321 /* AuthManager.swift */; };
 		BCCDB42D27E99BEE00710321 /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCCDB42C27E99BEE00710321 /* DataManager.swift */; };
 		BCCDB42F27E99C5B00710321 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCCDB42E27E99C5B00710321 /* Extensions.swift */; };
-		BCCDB43127E9C13000710321 /* FilterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCCDB43027E9C13000710321 /* FilterViewController.swift */; };
+		BCCDB43127E9C13000710321 /* RandomViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCCDB43027E9C13000710321 /* RandomViewController.swift */; };
 		BCCDB43427E9C9B300710321 /* ImageCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCCDB43327E9C9B300710321 /* ImageCollectionViewCell.swift */; };
 		BCCDB43627E9CE4F00710321 /* Image.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCCDB43527E9CE4F00710321 /* Image.swift */; };
 		BCCDB43827E9E59500710321 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCCDB43727E9E59500710321 /* SearchViewController.swift */; };
@@ -47,7 +47,7 @@
 		BCCDB42A27E99BB000710321 /* AuthManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthManager.swift; sourceTree = "<group>"; };
 		BCCDB42C27E99BEE00710321 /* DataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
 		BCCDB42E27E99C5B00710321 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
-		BCCDB43027E9C13000710321 /* FilterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterViewController.swift; sourceTree = "<group>"; };
+		BCCDB43027E9C13000710321 /* RandomViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RandomViewController.swift; sourceTree = "<group>"; };
 		BCCDB43327E9C9B300710321 /* ImageCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCollectionViewCell.swift; sourceTree = "<group>"; };
 		BCCDB43527E9CE4F00710321 /* Image.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Image.swift; sourceTree = "<group>"; };
 		BCCDB43727E9E59500710321 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
@@ -144,7 +144,7 @@
 			isa = PBXGroup;
 			children = (
 				BCCDB43E27E9E89300710321 /* Search */,
-				BCCDB43D27E9E88700710321 /* Filter */,
+				BCCDB43D27E9E88700710321 /* RandomImage */,
 				BCCDB43C27E9E87300710321 /* Photo */,
 				BCCDB43B27E9E85C00710321 /* Profile */,
 			);
@@ -167,12 +167,12 @@
 			path = Photo;
 			sourceTree = "<group>";
 		};
-		BCCDB43D27E9E88700710321 /* Filter */ = {
+		BCCDB43D27E9E88700710321 /* RandomImage */ = {
 			isa = PBXGroup;
 			children = (
-				BCCDB43027E9C13000710321 /* FilterViewController.swift */,
+				BCCDB43027E9C13000710321 /* RandomViewController.swift */,
 			);
-			path = Filter;
+			path = RandomImage;
 			sourceTree = "<group>";
 		};
 		BCCDB43E27E9E89300710321 /* Search */ = {
@@ -307,7 +307,7 @@
 				BCCDB40927E9966300710321 /* AppDelegate.swift in Sources */,
 				BCCDB41F27E9971400710321 /* ProfileViewController.swift in Sources */,
 				BCCDB43627E9CE4F00710321 /* Image.swift in Sources */,
-				BCCDB43127E9C13000710321 /* FilterViewController.swift in Sources */,
+				BCCDB43127E9C13000710321 /* RandomViewController.swift in Sources */,
 				BCCDB42427E998E500710321 /* RegistrationViewController.swift in Sources */,
 				BCCDB40B27E9966300710321 /* SceneDelegate.swift in Sources */,
 				BCCDB41D27E996AF00710321 /* MainViewController.swift in Sources */,

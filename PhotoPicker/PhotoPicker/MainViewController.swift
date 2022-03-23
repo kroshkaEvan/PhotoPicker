@@ -44,20 +44,20 @@ class MainViewController: UITabBarController {
         viewControllers = [
             createNavController(for: PhotoViewController(),
                                    title: "Photo library",
-                                   image: UIImage(systemName: "photo.on.rectangle.angled"),
-                                   selectedImage: UIImage(systemName: "photo.on.rectangle.fill")),
-            createNavController(for: FilterViewController(),
+                                   image: Constants.Image.tabBarImagePhoto,
+                                   selectedImage: Constants.Image.tabBarImagePhotoFill),
+            createNavController(for: RandomViewController(),
                                    title: "",
-                                   image: UIImage(systemName: "paintbrush"),
-                                   selectedImage: UIImage(systemName: "paintbrush.fill")),
+                                   image: Constants.Image.tabBarImageRandom,
+                                   selectedImage: Constants.Image.tabBarImageRandomFill),
             createNavController(for: SearchViewController(),
                                    title: "",
-                                   image: UIImage(systemName: "magnifyingglass"),
-                                   selectedImage: UIImage(systemName: "rectangle.and.text.magnifyingglass.rtl")),
+                                   image: Constants.Image.tabBarImageSearch,
+                                   selectedImage: Constants.Image.tabBarImageSearchFill),
             createNavController(for: ProfileViewController(),
                                    title: "Profile",
-                                   image: UIImage(systemName: "person"),
-                                   selectedImage: UIImage(systemName: "person.fill"))
+                                   image: Constants.Image.tabBarImageProfile,
+                                   selectedImage: Constants.Image.tabBarImageProfileFill)
         ]
     }
 }

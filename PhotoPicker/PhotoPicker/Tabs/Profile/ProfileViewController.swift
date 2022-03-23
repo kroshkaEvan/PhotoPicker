@@ -26,23 +26,23 @@ class ProfileViewController: UIViewController {
     }
     
     @objc private func presentActionSheet() {
-        let actionSheet = UIAlertController(title: "Settings",
+        let alert = UIAlertController(title: "Settings",
                                             message: "",
                                             preferredStyle: .actionSheet)
-        actionSheet.addAction(UIAlertAction(title: "Help",
+        alert.addAction(UIAlertAction(title: "Help",
                                             style: .default,
                                             handler: { [weak self] _ in self?.openURL(.help)}))
-        actionSheet.addAction(UIAlertAction(title: "Web page",
+        alert.addAction(UIAlertAction(title: "Web page",
                                             style: .default,
                                             handler: { [weak self] _ in self?.openURL(.webVersion)}))
-        actionSheet.addAction(UIAlertAction(title: "Log Out",
+        alert.addAction(UIAlertAction(title: "Log Out",
                                             style: .destructive,
                                             handler: { [weak self] _ in self?.alertLogOut()}))
-        actionSheet.addAction(UIAlertAction(title: "Cancel",
+        alert.addAction(UIAlertAction(title: "Cancel",
                                             style: .cancel,
                                             handler: nil))
-        actionSheet.modalPresentationStyle = .currentContext
-        present(actionSheet, animated: true)
+        alert.modalPresentationStyle = .currentContext
+        present(alert, animated: true)
     }
     
     private func alertLogOut() {

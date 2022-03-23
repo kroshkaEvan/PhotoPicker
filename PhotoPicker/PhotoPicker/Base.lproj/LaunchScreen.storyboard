@@ -16,7 +16,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="gearshape.2.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="5DR-6L-4jm">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="photo.on.rectangle.angled" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="5DR-6L-4jm">
                                 <rect key="frame" x="87" y="144" width="240" height="128"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
@@ -31,7 +31,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="gearshape.2.fill" catalog="system" width="128" height="100"/>
+        <image name="photo.on.rectangle.angled" catalog="system" width="128" height="100"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

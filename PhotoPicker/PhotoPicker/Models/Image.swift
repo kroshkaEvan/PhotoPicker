@@ -10,4 +10,5 @@ import UIKit
 
 class Image {
     static var images = [UIImage]()
+    static var numberOfItemsInSection = 2
 }

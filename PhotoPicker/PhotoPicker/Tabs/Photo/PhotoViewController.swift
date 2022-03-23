@@ -11,7 +11,6 @@ import Photos
 import PhotosUI
 
 class PhotoViewController: UIViewController {
-    private let numberOfItemsInSection = 3
 
     private lazy var photosCollectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
@@ -25,7 +24,7 @@ class PhotoViewController: UIViewController {
                          - layout.sectionInset.left
                          - layout.sectionInset.right
                          - Constants.Dimensions.cellsSpacing
-                         * (CGFloat(numberOfItemsInSection) + 1)) / CGFloat(numberOfItemsInSection)
+                         * (CGFloat(Image.numberOfItemsInSection) + 1)) / CGFloat(Image.numberOfItemsInSection)
         let cellHeight = cellWidth
         layout.minimumLineSpacing = Constants.Dimensions.cellsSpacing
         layout.minimumInteritemSpacing = Constants.Dimensions.cellsSpacing
@@ -52,7 +51,7 @@ class PhotoViewController: UIViewController {
         let longPressRecognizer = UILongPressGestureRecognizer(target: self,
                                                                action: #selector(longPressed(sender:)))
         self.view.addGestureRecognizer(longPressRecognizer)
-        setupCollectionView()
+        setupView()
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -68,7 +67,7 @@ class PhotoViewController: UIViewController {
         }
     }
     
-    private func setupCollectionView() {
+    private func setupView() {
         view.addSubview(photosCollectionView)
         photosCollectionView.centerXAnchor.constraint(equalTo: view.safeAreaLayoutGuide.centerXAnchor).isActive = true
         photosCollectionView.widthAnchor.constraint(equalTo: view.safeAreaLayoutGuide.widthAnchor).isActive = true
@@ -84,22 +83,22 @@ class PhotoViewController: UIViewController {
         if sender.state == UIGestureRecognizer.State.began {
             let touchPoint = sender.location(in: self.photosCollectionView)
             if let indexPath = photosCollectionView.indexPathForItem(at: touchPoint) {
-                let actionSheet = UIAlertController(title: nil,
+                let alert = UIAlertController(title: nil,
                                               message: nil,
                                               preferredStyle: .alert)
-                actionSheet.addAction(UIAlertAction(title: "Copy image",
+                alert.addAction(UIAlertAction(title: "Copy image",
                                               style: .default,
                                               handler: {[weak self] _ in self?.copyImage(Image.images[indexPath.row])}))
-                actionSheet.addAction(UIAlertAction(title: "Share image",
+                alert.addAction(UIAlertAction(title: "Share image",
                                               style: .default,
                                               handler: {[weak self] _ in self?.shareImage(Image.images[indexPath.row])}))
-                actionSheet.addAction(UIAlertAction(title: "Delete image",
+                alert.addAction(UIAlertAction(title: "Delete image",
                                               style: .default,
                                               handler: {[weak self] _ in self?.delete(indexPath)}))
-                actionSheet.addAction(UIAlertAction(title: "Cancel",
+                alert.addAction(UIAlertAction(title: "Cancel",
                                               style: .cancel,
                                               handler: nil))
-                present(actionSheet, animated: true)
+                present(alert, animated: true)
             }
         }
     }
@@ -120,19 +119,19 @@ extension PhotoViewController: UIImagePickerControllerDelegate, UINavigationCont
     }
     
     private func presentPhotoActionSheet() {
-        let actionSheet = UIAlertController(title: "Profile photo",
+        let alert = UIAlertController(title: "Profile photo",
                                             message: "How would you like to add a photo?",
                                             preferredStyle: .actionSheet)
-        actionSheet.addAction(UIAlertAction(title: "Take photo",
+        alert.addAction(UIAlertAction(title: "Take photo",
                                             style: .default,
                                             handler: { [weak self] _ in self?.presentCamera()}))
-        actionSheet.addAction(UIAlertAction(title: "Select photo from the library",
+        alert.addAction(UIAlertAction(title: "Select photo from the library",
                                             style: .default,
                                             handler: {[weak self] _ in self?.presentPhotoLibrary()}))
-        actionSheet.addAction(UIAlertAction(title: "Cancel",
+        alert.addAction(UIAlertAction(title: "Cancel",
                                             style: .cancel,
                                             handler: nil))
-        present(actionSheet, animated: true)
+        present(alert, animated: true)
     }
     
     func presentPhotoLibrary() {
