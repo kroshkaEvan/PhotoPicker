@@ -8,5 +8,5 @@ target 'PhotoPicker' do
   # Pods for PhotoPicker
 pod 'Firebase/Auth'
 pod 'Firebase/Database'
-
+pod 'Kingfisher'
 end

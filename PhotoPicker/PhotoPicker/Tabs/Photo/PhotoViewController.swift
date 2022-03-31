@@ -9,9 +9,10 @@ import UIKit
 import FirebaseAuth
 import Photos
 import PhotosUI
+import Kingfisher
 
 class PhotoViewController: UIViewController {
-
+    
     private lazy var photosCollectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
         
@@ -39,7 +40,7 @@ class PhotoViewController: UIViewController {
         collectionView.translatesAutoresizingMaskIntoConstraints = false
         return collectionView
     }()
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add,
@@ -52,11 +53,17 @@ class PhotoViewController: UIViewController {
                                                                action: #selector(longPressed(sender:)))
         self.view.addGestureRecognizer(longPressRecognizer)
         setupView()
+        loadImages()
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         checkStatusAuth()
+    }
+    
+    private func loadImages() {
+        Image.images = DataManager.shared.loadImagesArray()
+        photosCollectionView.reloadData()
     }
     
     private func checkStatusAuth() {
@@ -71,8 +78,8 @@ class PhotoViewController: UIViewController {
         view.addSubview(photosCollectionView)
         photosCollectionView.centerXAnchor.constraint(equalTo: view.safeAreaLayoutGuide.centerXAnchor).isActive = true
         photosCollectionView.widthAnchor.constraint(equalTo: view.safeAreaLayoutGuide.widthAnchor).isActive = true
-        photosCollectionView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor).isActive = true
-        photosCollectionView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor).isActive = true
+        photosCollectionView.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
+        photosCollectionView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
     }
     
     @objc private func didTapAdd() {
@@ -86,15 +93,15 @@ class PhotoViewController: UIViewController {
                 let alert = UIAlertController(title: nil,
                                               message: nil,
                                               preferredStyle: .alert)
-                alert.addAction(UIAlertAction(title: "Copy image",
-                                              style: .default,
-                                              handler: {[weak self] _ in self?.copyImage(Image.images[indexPath.row])}))
                 alert.addAction(UIAlertAction(title: "Share image",
                                               style: .default,
-                                              handler: {[weak self] _ in self?.shareImage(Image.images[indexPath.row])}))
+                                              handler: {[weak self] _ in self?.shareImage(indexPath.row)}))
                 alert.addAction(UIAlertAction(title: "Delete image",
                                               style: .default,
-                                              handler: {[weak self] _ in self?.delete(indexPath)}))
+                                              handler: {[weak self] _ in
+                    DispatchQueue.main.async {
+                        DataManager.shared.deleteAt(index: indexPath.row)
+                        self?.photosCollectionView.reloadData()}}))
                 alert.addAction(UIAlertAction(title: "Cancel",
                                               style: .cancel,
                                               handler: nil))
@@ -113,24 +120,28 @@ extension PhotoViewController: UIImagePickerControllerDelegate, UINavigationCont
         picker.dismiss(animated: true, completion: nil)
         guard let selectedPhoto = info[UIImagePickerController.InfoKey.editedImage] as? UIImage else {return}
         DispatchQueue.main.async {
-            Image.images.append(selectedPhoto)
+            let path = DataManager.shared.saveImage(image: selectedPhoto)
+            Image.shared.imagePath = path
+            DataManager.shared.save(item: Image.shared)
+            NotificationCenter.default.post(name: NSNotification.Name(rawValue: "update"), object: nil)
             self.photosCollectionView.reloadData()
         }
     }
     
+    
     private func presentPhotoActionSheet() {
-        let alert = UIAlertController(title: "Profile photo",
-                                            message: "How would you like to add a photo?",
-                                            preferredStyle: .actionSheet)
+        let alert = UIAlertController(title: "How would you like to add a photo?",
+                                      message: "",
+                                      preferredStyle: .actionSheet)
         alert.addAction(UIAlertAction(title: "Take photo",
-                                            style: .default,
-                                            handler: { [weak self] _ in self?.presentCamera()}))
+                                      style: .default,
+                                      handler: { [weak self] _ in self?.presentCamera()}))
         alert.addAction(UIAlertAction(title: "Select photo from the library",
-                                            style: .default,
-                                            handler: {[weak self] _ in self?.presentPhotoLibrary()}))
+                                      style: .default,
+                                      handler: {[weak self] _ in self?.presentPhotoLibrary()}))
         alert.addAction(UIAlertAction(title: "Cancel",
-                                            style: .cancel,
-                                            handler: nil))
+                                      style: .cancel,
+                                      handler: nil))
         present(alert, animated: true)
     }
     
@@ -153,14 +164,14 @@ extension PhotoViewController: UIImagePickerControllerDelegate, UINavigationCont
 
 extension PhotoViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return Image.images.count
+        return DataManager.shared.loadImagesArray().count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ImageCollectionViewCell.reuseIdentifier,
                                                       for: indexPath)
         if let cell = cell as? ImageCollectionViewCell {
-            cell.imageView.image = Image.images[indexPath.row]
+            cell.imageView.image = DataManager.shared.loadImage(fileName: DataManager.shared.loadImagesArray()[indexPath.row].imagePath ?? "")
         }
         return cell
     }
@@ -172,21 +183,17 @@ extension PhotoViewController: UICollectionViewDelegate, UICollectionViewDataSou
 }
 
 extension PhotoViewController {
-    private func copyImage(_ image: UIImage) {
-        UIPasteboard.general.image = image
-    }
-    private func shareImage(_ image: UIImage) {
-        let shareVC = UIActivityViewController(activityItems: [image],
-                                               applicationActivities: nil)
-        present(shareVC, animated: true)
+    private func shareImage(_ index: Int) {
+        let image = DataManager.shared.loadImage(fileName: DataManager.shared.loadImagesArray()[index].imagePath ?? "")
+        let activityVC = UIActivityViewController(activityItems: [image ?? ""],
+                                                  applicationActivities: nil)
+        present(activityVC, animated: true)
     }
     private func delete(_ imageIndex: IndexPath) {
-        DispatchQueue.main.async {
-            Image.images.remove(at: imageIndex.row)
-            self.photosCollectionView.deleteItems(at: [imageIndex])
-            self.photosCollectionView.reloadData()
-        }
+                DispatchQueue.main.async {
+                    DataManager.shared.deleteAt(index: imageIndex.row)
+
+        self.photosCollectionView.reloadData()
+                }
     }
 }
-
-

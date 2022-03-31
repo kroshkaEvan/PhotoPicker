@@ -12,7 +12,7 @@ class Constants {
     class String {
         static let minLength = 8
         static let urlRandomImage = "https://source.unsplash.com/collection/1065412"
-
+        static let key = "key"
     }
     
     class Colors {

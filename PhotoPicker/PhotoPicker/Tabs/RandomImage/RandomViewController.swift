@@ -40,7 +40,7 @@ class RandomViewController: UIViewController, UIGestureRecognizerDelegate {
                                                          style: .done,
                                                          target: self,
                                                          action: #selector(didTapLoad))
-        rightBarButton.tintColor = .label
+        rightBarButton.tintColor = .systemBackground
         navigationItem.setRightBarButtonItems([rightBarButton],
                                               animated: true)
     }
@@ -65,29 +65,23 @@ class RandomViewController: UIViewController, UIGestureRecognizerDelegate {
     
     @objc private func didTapLoad() {
         if imageView.image != nil {
-            shareImage()
+            guard let image = imageView.image else {return}
+            let activityVC = UIActivityViewController(activityItems: [image],
+                                                   applicationActivities: nil)
+            present(activityVC, animated: true)
+        } else {
+            alertSwipe()
         }
     }
     
     @objc private func swipeAction() {
-        if let url = URL(string: Constants.String.urlRandomImage) {
+        if let urlString = URL(string: Constants.String.urlRandomImage) {
             do {
-                let data = try Data(contentsOf: url)
+                let data = try Data(contentsOf: urlString)
                 self.imageView.image = UIImage(data: data)
             } catch {
                 print("error load")
             }
         }
     }
-    
-    private func shareImage() {
-        guard let image = imageView.image else {return}
-//        let image = imageView.image
-        let imageShare = [image]
-        let activityViewController = UIActivityViewController(activityItems: imageShare,
-                                                              applicationActivities: nil)
-        activityViewController.popoverPresentationController?.sourceView = self.view
-        self.present(activityViewController, animated: true, completion: nil)
-    }
-    
 }

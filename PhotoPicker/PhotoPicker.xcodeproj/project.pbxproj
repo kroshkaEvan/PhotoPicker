@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		3E27838927FA9F35C6525287 /* Pods_PhotoPicker.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 74503194FC5C96CE1F775D82 /* Pods_PhotoPicker.framework */; };
-		BCCDB40927E9966300710321 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCCDB40827E9966300710321 /* AppDelegate.swift */; };
+		BCC3641D27F64DB900C10C23 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCC3641C27F64DB900C10C23 /* AppDelegate.swift */; };
 		BCCDB40B27E9966300710321 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCCDB40A27E9966300710321 /* SceneDelegate.swift */; };
 		BCCDB40D27E9966300710321 /* PhotoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCCDB40C27E9966300710321 /* PhotoViewController.swift */; };
 		BCCDB41227E9966B00710321 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BCCDB41127E9966B00710321 /* Assets.xcassets */; };
@@ -31,8 +31,8 @@
 /* Begin PBXFileReference section */
 		74503194FC5C96CE1F775D82 /* Pods_PhotoPicker.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PhotoPicker.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		883D81DAE1FA5AAD4008AC75 /* Pods-PhotoPicker.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PhotoPicker.debug.xcconfig"; path = "Target Support Files/Pods-PhotoPicker/Pods-PhotoPicker.debug.xcconfig"; sourceTree = "<group>"; };
+		BCC3641C27F64DB900C10C23 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = ../AppDelegate.swift; sourceTree = "<group>"; };
 		BCCDB40527E9966300710321 /* PhotoPicker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PhotoPicker.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		BCCDB40827E9966300710321 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BCCDB40A27E9966300710321 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		BCCDB40C27E9966300710321 /* PhotoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoViewController.swift; sourceTree = "<group>"; };
 		BCCDB41127E9966B00710321 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -108,8 +108,8 @@
 				BCCDB43227E9C13900710321 /* Tabs */,
 				BCCDB42927E99B8C00710321 /* Models */,
 				BCCDB42027E998B400710321 /* Auth */,
-				BCCDB40827E9966300710321 /* AppDelegate.swift */,
 				BCCDB40A27E9966300710321 /* SceneDelegate.swift */,
+				BCC3641C27F64DB900C10C23 /* AppDelegate.swift */,
 				BCCDB41127E9966B00710321 /* Assets.xcassets */,
 				BCCDB41327E9966B00710321 /* LaunchScreen.storyboard */,
 				BCCDB41627E9966B00710321 /* Info.plist */,
@@ -301,10 +301,10 @@
 				BCCDB43827E9E59500710321 /* SearchViewController.swift in Sources */,
 				BCCDB42227E998D500710321 /* LoginViewController.swift in Sources */,
 				BCCDB42D27E99BEE00710321 /* DataManager.swift in Sources */,
+				BCC3641D27F64DB900C10C23 /* AppDelegate.swift in Sources */,
 				BCCDB43427E9C9B300710321 /* ImageCollectionViewCell.swift in Sources */,
 				BCCDB42B27E99BB000710321 /* AuthManager.swift in Sources */,
 				BCCDB40D27E9966300710321 /* PhotoViewController.swift in Sources */,
-				BCCDB40927E9966300710321 /* AppDelegate.swift in Sources */,
 				BCCDB41F27E9971400710321 /* ProfileViewController.swift in Sources */,
 				BCCDB43627E9CE4F00710321 /* Image.swift in Sources */,
 				BCCDB43127E9C13000710321 /* RandomViewController.swift in Sources */,
@@ -466,6 +466,10 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/PhotoPicker/RealmPhotoAlbum-master/Pods/Realm/core",
+				);
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = tms.tsvetkov.PhotoPicker;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -494,6 +498,10 @@
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
+				);
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/PhotoPicker/RealmPhotoAlbum-master/Pods/Realm/core",
 				);
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = tms.tsvetkov.PhotoPicker;

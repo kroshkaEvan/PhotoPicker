@@ -72,16 +72,6 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         return button
     }()
     
-//    private lazy var sectionLabel: UILabel = {
-//        let label = UILabel()
-//        label.text = "----------------    OR    ----------------"
-//        label.textAlignment = .center
-//        label.textColor = .secondaryLabel
-//        label.font = .systemFont(ofSize: 18)
-//        label.translatesAutoresizingMaskIntoConstraints = false
-//        return label
-//    }()
-    
     private lazy var stackView: UIStackView = {
         let stackView = UIStackView()
         stackView.translatesAutoresizingMaskIntoConstraints = false
@@ -100,7 +90,6 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         imageView.isUserInteractionEnabled = true
-//        sectionLabel.isUserInteractionEnabled = true
         emailOrNameTextField.delegate = self
         passwordTextField.delegate = self
         loginButton.addTarget(self,
@@ -190,13 +179,6 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
                                               multiplier: 0.9).isActive = true
         loginButton.heightAnchor.constraint(equalTo: view.safeAreaLayoutGuide.heightAnchor,
                                                multiplier: 0.06).isActive = true
-//        sectionLabel.topAnchor.constraint(equalTo: loginButton.bottomAnchor,
-//                                            constant: 15).isActive = true
-//        sectionLabel.centerXAnchor.constraint(equalTo: view.safeAreaLayoutGuide.centerXAnchor).isActive = true
-//        sectionLabel.widthAnchor.constraint(equalTo: view.safeAreaLayoutGuide.widthAnchor,
-//                                              multiplier: 0.9).isActive = true
-//        sectionLabel.heightAnchor.constraint(equalTo: view.safeAreaLayoutGuide.heightAnchor,
-//                                               multiplier: 0.06).isActive = true
         registrationButton.bottomAnchor.constraint(equalTo: view.bottomAnchor,
                                             constant: -30).isActive = true
         registrationButton.centerXAnchor.constraint(equalTo: view.safeAreaLayoutGuide.centerXAnchor).isActive = true
