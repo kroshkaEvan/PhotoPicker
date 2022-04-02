@@ -17,7 +17,7 @@ class RandomViewController: UIViewController, UIGestureRecognizerDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = Constants.Colors.appMainColor
+        view.backgroundColor = .lightGray
         alertSwipe()
         setupNavigationBarItem()
         setupSwipeGesture()
@@ -50,7 +50,7 @@ class RandomViewController: UIViewController, UIGestureRecognizerDelegate {
         imageView.centerXAnchor.constraint(equalTo: view.safeAreaLayoutGuide.centerXAnchor).isActive = true
         imageView.widthAnchor.constraint(equalTo: view.safeAreaLayoutGuide.widthAnchor).isActive = true
         imageView.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
-        imageView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
+        imageView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor).isActive = true
     }
     
     private func alertSwipe() {

@@ -53,11 +53,7 @@ class MainViewController: UITabBarController {
             createNavController(for: SearchViewController(),
                                    title: "",
                                    image: Constants.Image.tabBarImageSearch,
-                                   selectedImage: Constants.Image.tabBarImageSearchFill),
-            createNavController(for: ProfileViewController(),
-                                   title: "Profile",
-                                   image: Constants.Image.tabBarImageProfile,
-                                   selectedImage: Constants.Image.tabBarImageProfileFill)
+                                   selectedImage: Constants.Image.tabBarImageSearchFill)
         ]
     }
 }

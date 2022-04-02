@@ -11,6 +11,8 @@ import Foundation
 class Image: Codable {
     static let shared = Image()
     static var images = [Image]()
+    static var unsplashImages = [UnsplashImage]()
+    static var selectedImages = [UIImage]()
     static var numberOfItemsInSection = 2
     var imagePath: String?
     
@@ -30,3 +32,18 @@ class Image: Codable {
         try container.encode(self.imagePath, forKey: .imagePath)
     }
 }
+
+struct UnsplashImage: Decodable {
+    let width: Int
+    let height: Int
+    let urls: [URLKind.RawValue: String]
+    
+    enum URLKind: String {
+        case raw
+        case full
+        case regular
+        case small
+        case thumb
+    }
+}
+

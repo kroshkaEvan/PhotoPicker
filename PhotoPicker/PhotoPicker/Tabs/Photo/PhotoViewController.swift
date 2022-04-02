@@ -10,6 +10,7 @@ import FirebaseAuth
 import Photos
 import PhotosUI
 import Kingfisher
+import SafariServices
 
 class PhotoViewController: UIViewController {
     
@@ -36,23 +37,21 @@ class PhotoViewController: UIViewController {
                                               collectionViewLayout: layout)
         collectionView.register(ImageCollectionViewCell.self,
                                 forCellWithReuseIdentifier: ImageCollectionViewCell.reuseIdentifier)
-        collectionView.backgroundColor = Constants.Colors.appMainColor
+        collectionView.backgroundColor = .lightGray
         collectionView.translatesAutoresizingMaskIntoConstraints = false
         return collectionView
     }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add,
-                                                            target: self,
-                                                            action: #selector(didTapAdd))
-        navigationItem.rightBarButtonItem?.tintColor = .label
+        view.backgroundColor = .lightGray
         photosCollectionView.dataSource = self
         photosCollectionView.delegate = self
         let longPressRecognizer = UILongPressGestureRecognizer(target: self,
                                                                action: #selector(longPressed(sender:)))
         self.view.addGestureRecognizer(longPressRecognizer)
         setupView()
+        setupNavigationItems()
         loadImages()
     }
     
@@ -78,8 +77,8 @@ class PhotoViewController: UIViewController {
         view.addSubview(photosCollectionView)
         photosCollectionView.centerXAnchor.constraint(equalTo: view.safeAreaLayoutGuide.centerXAnchor).isActive = true
         photosCollectionView.widthAnchor.constraint(equalTo: view.safeAreaLayoutGuide.widthAnchor).isActive = true
-        photosCollectionView.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
-        photosCollectionView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
+        photosCollectionView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor).isActive = true
+        photosCollectionView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor).isActive = true
     }
     
     @objc private func didTapAdd() {
@@ -127,7 +126,6 @@ extension PhotoViewController: UIImagePickerControllerDelegate, UINavigationCont
             self.photosCollectionView.reloadData()
         }
     }
-    
     
     private func presentPhotoActionSheet() {
         let alert = UIAlertController(title: "How would you like to add a photo?",
@@ -189,11 +187,93 @@ extension PhotoViewController {
                                                   applicationActivities: nil)
         present(activityVC, animated: true)
     }
+    
     private func delete(_ imageIndex: IndexPath) {
                 DispatchQueue.main.async {
                     DataManager.shared.deleteAt(index: imageIndex.row)
 
         self.photosCollectionView.reloadData()
                 }
+    }
+}
+
+extension PhotoViewController {
+    private func setupNavigationItems() {
+        let rightBarButtonItemAdd = UIBarButtonItem(barButtonSystemItem: .add,
+                                                            target: self,
+                                                            action: #selector(didTapAdd))
+        rightBarButtonItemAdd.tintColor = .label
+        let leftBarButtonItemSettings = UIBarButtonItem(image: Constants.Image.infoImage,
+                                                         style: .done,
+                                                         target: self,
+                                                         action: #selector(presentActionSheet))
+        leftBarButtonItemSettings.tintColor = .label
+        navigationItem.setRightBarButtonItems([leftBarButtonItemSettings, rightBarButtonItemAdd],
+                                              animated: true)
+    }
+    
+    @objc private func presentActionSheet() {
+        let alert = UIAlertController(title: "Settings",
+                                            message: "",
+                                            preferredStyle: .actionSheet)
+        alert.addAction(UIAlertAction(title: "Help",
+                                            style: .default,
+                                            handler: { [weak self] _ in self?.openURL(.help)}))
+        alert.addAction(UIAlertAction(title: "Web page",
+                                            style: .default,
+                                            handler: { [weak self] _ in self?.openURL(.webVersion)}))
+        alert.addAction(UIAlertAction(title: "Log Out",
+                                            style: .destructive,
+                                            handler: { [weak self] _ in self?.alertLogOut()}))
+        alert.addAction(UIAlertAction(title: "Cancel",
+                                            style: .cancel,
+                                            handler: nil))
+        alert.modalPresentationStyle = .currentContext
+        present(alert, animated: true)
+    }
+    
+    private func alertLogOut() {
+        let alertLogOut = UIAlertController(title: "Log out of your account?",
+                                            message: "",
+                                            preferredStyle: .alert)
+        alertLogOut.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+        alertLogOut.addAction(UIAlertAction(title: "Log out",
+                                            style: .destructive,
+                                            handler: { [weak self] _ in self?.didTapLogOut()}))
+        present(alertLogOut, animated: true)
+    }
+    
+    private func didTapLogOut(){
+        AuthManager.shared.getLogOut { [weak self] successLogOut in
+            DispatchQueue.main.async {
+                if successLogOut {
+                    let loginVC = LoginViewController()
+                    loginVC.modalPresentationStyle = .fullScreen
+                    self?.present(loginVC, animated: true) {
+                        self?.navigationController?.popToRootViewController(animated: true)
+                        self?.tabBarController?.selectedIndex = 0
+                    }
+                } else {
+                    print("User don't log out")
+                }
+            }
+        }
+    }
+
+    enum SettingsURLType {
+        case webVersion, help
+    }
+    
+    private func openURL(_ type: SettingsURLType) {
+        let urlString: String
+        switch type {
+        case .webVersion : urlString = "https://photoeditorpro.com/"
+        case .help : urlString = "https://www.linkedin.com/in/ivan-tsvetkov-44a25a233/"
+        }
+        guard let url = URL(string: urlString) else {
+            return
+        }
+        let safaryVC = SFSafariViewController(url: url)
+        present(safaryVC, animated: true)
     }
 }

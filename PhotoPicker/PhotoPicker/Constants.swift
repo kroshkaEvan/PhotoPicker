@@ -15,6 +15,10 @@ class Constants {
         static let key = "key"
     }
     
+    class API {
+        static let key = "Client-ID Bg_ep4mL28r_uBtCkchSoJySsiPMWV4c7kLoa392r2k"
+    }
+    
     class Colors {
         static let appMainColor = UIColor(red: 92 / 255,
                                           green: 47 / 255,
@@ -35,11 +39,15 @@ class Constants {
         static let tabBarImageSearchFill = UIImage(systemName: "rectangle.and.text.magnifyingglass.rtl")
         static let tabBarImageProfile = UIImage(systemName: "person")
         static let tabBarImageProfileFill = UIImage(systemName: "person.fill")
+        
+        static let checkMark = UIImage(systemName: "checkmark.circle.fill")
+
     }
     
     class Dimensions {
         static let cellsSpacing = CGFloat(4)
         static let sectionHeight = CGFloat(4)
+        static let unsplashSize = CGFloat(20)
     }
     
 }

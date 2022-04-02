@@ -9,4 +9,6 @@ target 'PhotoPicker' do
 pod 'Firebase/Auth'
 pod 'Firebase/Database'
 pod 'Kingfisher'
+pod 'SDWebImage', '~> 5.0'
+
 end
