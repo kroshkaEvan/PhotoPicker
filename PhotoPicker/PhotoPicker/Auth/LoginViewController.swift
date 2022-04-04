@@ -185,7 +185,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         registrationButton.heightAnchor.constraint(equalTo: view.safeAreaLayoutGuide.heightAnchor,
                                                multiplier: 0.08).isActive = true
         registrationButton.widthAnchor.constraint(equalTo: view.safeAreaLayoutGuide.widthAnchor,
-                                              multiplier: 0.6).isActive = true
+                                              multiplier: 0.9).isActive = true
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {

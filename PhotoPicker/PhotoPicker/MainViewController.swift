@@ -43,7 +43,7 @@ class MainViewController: UITabBarController {
     private func setupVCs() {
         viewControllers = [
             createNavController(for: PhotoViewController(),
-                                   title: "Photo library",
+                                   title: Constants.Strings.library,
                                    image: Constants.Image.tabBarImagePhoto,
                                    selectedImage: Constants.Image.tabBarImagePhotoFill),
             createNavController(for: RandomViewController(),

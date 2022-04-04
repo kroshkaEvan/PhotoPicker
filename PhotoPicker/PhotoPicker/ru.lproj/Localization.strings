@@ -1,4 +1,4 @@
-"Please enter search term above..." = "Пожалуйста, введите поисковый запрос...";
+"Please enter search term above..." = "Введите поисковый запрос...";
 "Share image" = "Поделиться фото";
 "Delete image" = "Удалить фото";
 "Cancel" = "Отмена";
@@ -24,3 +24,7 @@
 "You couldn't log in, check your password or create an account" = "Вы не смогли войти в систему, проверьте свой пароль или создайте учетную запись";
 "Don't have an account? Sign up." = "У вас нет учетной записи? Зарегистрироваться.";
 "Log In" = "Войти";
+"Swipe left/right to choose a random image" = "Проведите пальцем влево / вправо, чтобы выбрать случайное изображение";
+"Photo library" = "Библиотека фотографий";
+"Enter a query in the search box and select the photo you want to download" = "Введите в поисковую строку запрос и выберите фото которую хотите скачать";
+

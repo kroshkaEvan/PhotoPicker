@@ -101,16 +101,30 @@ class SearchViewController: UIViewController {
     }
     
     @objc func didTapAdd(sender: UIBarButtonItem) {
-        let activityVC = UIActivityViewController(activityItems: self.selectedImages,
-                                                       applicationActivities: nil)
-        activityVC.completionWithItemsHandler = { _, bool, _, _ in
-            if bool {
-                self.refresh()
+        if !selectedImages.isEmpty {
+            let activityVC = UIActivityViewController(activityItems: self.selectedImages,
+                                                           applicationActivities: nil)
+            activityVC.completionWithItemsHandler = { _, bool, _, _ in
+                if bool {
+                    self.refresh()
+                }
             }
+            activityVC.popoverPresentationController?.barButtonItem = sender
+            activityVC.popoverPresentationController?.permittedArrowDirections = .any
+            present(activityVC, animated: true)
+        } else {
+            alertSwipe()
         }
-        activityVC.popoverPresentationController?.barButtonItem = sender
-        activityVC.popoverPresentationController?.permittedArrowDirections = .any
-        present(activityVC, animated: true)
+    }
+    
+    private func alertSwipe() {
+        let alertLogOut = UIAlertController(title: Constants.Strings.errorSearch,
+                                            message: "",
+                                            preferredStyle: .alert)
+        alertLogOut.addAction(UIAlertAction(title: "OK",
+                                            style: .cancel,
+                                            handler: nil))
+        present(alertLogOut, animated: true)
     }
 }
 

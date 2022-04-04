@@ -50,7 +50,7 @@ class RandomViewController: UIViewController, UIGestureRecognizerDelegate {
     }
     
     private func alertSwipe() {
-        let alertLogOut = UIAlertController(title: "Swipe left/right to choose a random image",
+        let alertLogOut = UIAlertController(title: Constants.Strings.swipe,
                                             message: "",
                                             preferredStyle: .alert)
         alertLogOut.addAction(UIAlertAction(title: "OK",
