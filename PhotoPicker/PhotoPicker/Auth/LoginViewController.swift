@@ -28,7 +28,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         textField.layer.borderColor = UIColor.lightGray.cgColor
         textField.layer.cornerRadius = 5
         textField.attributedPlaceholder = NSAttributedString(
-            string: "Email address",
+            string: Constants.Strings.email,
             attributes: [NSAttributedString.Key.foregroundColor: UIColor.lightGray]
         )
         textField.textColor = .label
@@ -49,7 +49,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         textField.layer.borderColor = UIColor.lightGray.cgColor
         textField.layer.cornerRadius = 5
         textField.attributedPlaceholder = NSAttributedString(
-            string: "Password",
+            string: Constants.Strings.passwordPlaceholder,
             attributes: [NSAttributedString.Key.foregroundColor: UIColor.lightGray]
         )
         textField.textColor = .label
@@ -64,7 +64,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     private lazy var loginButton: UIButton = {
         let button = UIButton()
         button.backgroundColor = .blue
-        button.setTitle("Log In", for: .normal)
+        button.setTitle(Constants.Strings.logIn, for: .normal)
         button.setTitleColor(.white, for: .normal)
         button.titleLabel?.font = .systemFont(ofSize: 18)
         button.layer.cornerRadius = 5
@@ -80,7 +80,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     
     private lazy var registrationButton: UIButton = {
         let button = UIButton()
-        button.setTitle("Don't have an account? Sign up.", for: .normal)
+        button.setTitle(Constants.Strings.registr, for: .normal)
         button.setTitleColor(.blue, for: .normal)
         button.titleLabel?.font = .systemFont(ofSize: 14)
         button.translatesAutoresizingMaskIntoConstraints = false
@@ -102,13 +102,13 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     }
     
     @objc private func didTapLoginButton() {
-        let minLength = Constants.String.minLength
+        let minLength = Constants.Strings.minLength
         guard let emailName = emailOrNameTextField.text,
               let password = passwordTextField.text else { return }
         if password.isEmpty || emailName.isEmpty {
-            return alertLogin(error: "Fill in all fields")}
+            return alertLogin(error: Constants.Strings.errorAllFields)}
         else if password.count < minLength {
-            return alertLogin(error: "Lenght of password is less than \(minLength) charcters")
+            return alertLogin(error: Constants.Strings.errorPassword)
         }
         var userName: String?
         var email: String?
@@ -124,17 +124,17 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
                 if success {
                     self.dismiss(animated: true, completion: nil)
                 } else {
-                    self.alertLogin(error: "You couldn't log in, check your password or create an account")
+                    self.alertLogin(error: Constants.Strings.errorLogIn)
                 }
             }
         }
     }
     
     func alertLogin(error: String) {
-        let alertView = UIAlertController(title: "Oops",
+        let alertView = UIAlertController(title: Constants.Strings.uhOh,
                                           message: error,
                                           preferredStyle: .alert)
-        alertView.addAction(UIAlertAction(title: "Dismiss",
+        alertView.addAction(UIAlertAction(title: Constants.Strings.cancel,
                                           style: .cancel,
                                           handler: nil ))
         present(alertView, animated: true)

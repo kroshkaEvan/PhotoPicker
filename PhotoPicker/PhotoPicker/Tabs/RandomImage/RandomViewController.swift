@@ -70,7 +70,7 @@ class RandomViewController: UIViewController, UIGestureRecognizerDelegate {
     }
     
     @objc private func swipeAction() {
-        if let urlString = URL(string: Constants.String.urlRandomImage) {
+        if let urlString = URL(string: Constants.Strings.urlRandomImage) {
             do {
                 let data = try Data(contentsOf: urlString)
                 self.imageView.image = UIImage(data: data)

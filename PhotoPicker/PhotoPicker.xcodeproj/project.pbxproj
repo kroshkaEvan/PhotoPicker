@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		3E27838927FA9F35C6525287 /* Pods_PhotoPicker.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 74503194FC5C96CE1F775D82 /* Pods_PhotoPicker.framework */; };
+		BC6FED5727FB0258001AE091 /* Localization.strings in Resources */ = {isa = PBXBuildFile; fileRef = BC6FED5927FB0258001AE091 /* Localization.strings */; };
 		BCC3641D27F64DB900C10C23 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCC3641C27F64DB900C10C23 /* AppDelegate.swift */; };
 		BCC3641F27F734D800C10C23 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCC3641E27F734D800C10C23 /* NetworkManager.swift */; };
 		BCC3642127F819ED00C10C23 /* SearchResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCC3642027F819ED00C10C23 /* SearchResult.swift */; };
@@ -34,6 +35,7 @@
 		74503194FC5C96CE1F775D82 /* Pods_PhotoPicker.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PhotoPicker.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		883D81DAE1FA5AAD4008AC75 /* Pods-PhotoPicker.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PhotoPicker.debug.xcconfig"; path = "Target Support Files/Pods-PhotoPicker/Pods-PhotoPicker.debug.xcconfig"; sourceTree = "<group>"; };
 		BC6FED4927F8971C001AE091 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
+		BC6FED5827FB0258001AE091 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localization.strings; sourceTree = "<group>"; };
 		BCC3641C27F64DB900C10C23 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = ../AppDelegate.swift; sourceTree = "<group>"; };
 		BCC3641E27F734D800C10C23 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		BCC3642027F819ED00C10C23 /* SearchResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResult.swift; sourceTree = "<group>"; };
@@ -121,6 +123,7 @@
 				BCCDB42527E99A8500710321 /* GoogleService-Info.plist */,
 				BCCDB42727E99B4D00710321 /* Constants.swift */,
 				BCCDB42E27E99C5B00710321 /* Extensions.swift */,
+				BC6FED5927FB0258001AE091 /* Localization.strings */,
 			);
 			path = PhotoPicker;
 			sourceTree = "<group>";
@@ -244,6 +247,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BCCDB41527E9966B00710321 /* LaunchScreen.storyboard in Resources */,
+				BC6FED5727FB0258001AE091 /* Localization.strings in Resources */,
 				BCCDB42627E99A8500710321 /* GoogleService-Info.plist in Resources */,
 				BCCDB41227E9966B00710321 /* Assets.xcassets in Resources */,
 			);
@@ -321,6 +325,14 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
+		BC6FED5927FB0258001AE091 /* Localization.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				BC6FED5827FB0258001AE091 /* ru */,
+			);
+			name = Localization.strings;
+			sourceTree = "<group>";
+		};
 		BCCDB41327E9966B00710321 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (

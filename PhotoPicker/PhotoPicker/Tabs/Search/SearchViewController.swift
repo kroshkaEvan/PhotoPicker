@@ -49,7 +49,7 @@ class SearchViewController: UIViewController {
         searchController.searchBar.delegate = self
         searchController.searchBar.tintColor = .darkGray
         searchController.searchBar.showsCancelButton = false
-        searchController.searchBar.placeholder = "Please enter search term above..."
+        searchController.searchBar.placeholder = Constants.Strings.searchBar
         searchController.searchBar.translatesAutoresizingMaskIntoConstraints = false
         return searchController
     }()

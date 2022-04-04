@@ -15,9 +15,6 @@ import SafariServices
 class PhotoViewController: UIViewController {
     private var images = [Image]()
     private var sharedImage = Image()
-    //
-    private var selectedImages = [UIImage]()
-
     
     private lazy var photosCollectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
@@ -97,16 +94,16 @@ class PhotoViewController: UIViewController {
                 let alert = UIAlertController(title: nil,
                                               message: nil,
                                               preferredStyle: .alert)
-                alert.addAction(UIAlertAction(title: "Share image",
+                alert.addAction(UIAlertAction(title: Constants.Strings.share,
                                               style: .default,
                                               handler: {[weak self] _ in self?.shareImage(indexPath.row)}))
-                alert.addAction(UIAlertAction(title: "Delete image",
+                alert.addAction(UIAlertAction(title: Constants.Strings.delete,
                                               style: .default,
                                               handler: {[weak self] _ in
                     DispatchQueue.main.async {
                         DataManager.shared.deleteAt(index: indexPath.row)
                         self?.photosCollectionView.deleteItems(at: [indexPath])}}))
-                alert.addAction(UIAlertAction(title: "Cancel",
+                alert.addAction(UIAlertAction(title: Constants.Strings.cancel,
                                               style: .cancel,
                                               handler: nil))
                 present(alert, animated: true)
@@ -133,16 +130,16 @@ extension PhotoViewController: UIImagePickerControllerDelegate, UINavigationCont
     }
     
     private func presentPhotoActionSheet() {
-        let alert = UIAlertController(title: "How would you like to add a photo?",
+        let alert = UIAlertController(title: Constants.Strings.title,
                                       message: "",
                                       preferredStyle: .actionSheet)
-        alert.addAction(UIAlertAction(title: "Take photo",
+        alert.addAction(UIAlertAction(title: Constants.Strings.takePhoto,
                                       style: .default,
                                       handler: { [weak self] _ in self?.presentCamera()}))
-        alert.addAction(UIAlertAction(title: "Select photo from the library",
+        alert.addAction(UIAlertAction(title: Constants.Strings.select,
                                       style: .default,
                                       handler: {[weak self] _ in self?.presentPhotoLibrary()}))
-        alert.addAction(UIAlertAction(title: "Cancel",
+        alert.addAction(UIAlertAction(title: Constants.Strings.cancel,
                                       style: .cancel,
                                       handler: nil))
         present(alert, animated: true)
@@ -211,31 +208,32 @@ extension PhotoViewController {
     }
     
     @objc private func presentActionSheet() {
-        let alert = UIAlertController(title: "Settings",
+        let alert = UIAlertController(title: Constants.Strings.settings,
                                             message: "",
                                             preferredStyle: .actionSheet)
-        alert.addAction(UIAlertAction(title: "Help",
+        alert.addAction(UIAlertAction(title: Constants.Strings.help,
                                             style: .default,
                                             handler: { [weak self] _ in self?.openURL(.help)}))
-        alert.addAction(UIAlertAction(title: "Web page",
+        alert.addAction(UIAlertAction(title: Constants.Strings.web,
                                             style: .default,
                                             handler: { [weak self] _ in self?.openURL(.webVersion)}))
-        alert.addAction(UIAlertAction(title: "Log Out",
+        alert.addAction(UIAlertAction(title: Constants.Strings.logOut,
                                             style: .destructive,
                                             handler: { [weak self] _ in self?.alertLogOut()}))
-        alert.addAction(UIAlertAction(title: "Cancel",
+        alert.addAction(UIAlertAction(title: Constants.Strings.cancel,
                                             style: .cancel,
                                             handler: nil))
-        alert.modalPresentationStyle = .currentContext
         present(alert, animated: true)
     }
     
     private func alertLogOut() {
-        let alertLogOut = UIAlertController(title: "Log out of your account?",
+        let alertLogOut = UIAlertController(title: Constants.Strings.logOutMessage,
                                             message: "",
                                             preferredStyle: .alert)
-        alertLogOut.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
-        alertLogOut.addAction(UIAlertAction(title: "Log out",
+        alertLogOut.addAction(UIAlertAction(title: Constants.Strings.cancel,
+                                            style: .cancel,
+                                            handler: nil))
+        alertLogOut.addAction(UIAlertAction(title: Constants.Strings.logOut,
                                             style: .destructive,
                                             handler: { [weak self] _ in self?.didTapLogOut()}))
         present(alertLogOut, animated: true)

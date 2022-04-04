@@ -42,11 +42,11 @@ class DataManager {
     func save(item: Image) {
         var array = DataManager.shared.loadImagesArray()
         array.insert(item, at: 0)
-        UserDefaults.standard.set(encodable: array, forKey: Constants.String.key)
+        UserDefaults.standard.set(encodable: array, forKey: Constants.Strings.key)
     }
     
     func loadImagesArray() -> [Image] {
-        let array = UserDefaults.standard.value([Image].self, forKey: Constants.String.key)
+        let array = UserDefaults.standard.value([Image].self, forKey: Constants.Strings.key)
         return array ?? []
     }
     
@@ -90,6 +90,6 @@ class DataManager {
     }
     
     func update(items: [Image]) {
-        UserDefaults.standard.set(encodable: items, forKey: Constants.String.key)
+        UserDefaults.standard.set(encodable: items, forKey: Constants.Strings.key)
     }
 }

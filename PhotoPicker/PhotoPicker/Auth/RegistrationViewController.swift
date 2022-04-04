@@ -18,7 +18,7 @@ class RegistrationViewController: UIViewController, UITextFieldDelegate {
     
     private lazy var helperLabel: UILabel = {
         let label = UILabel()
-        label.text = "Choose username"
+        label.text = Constants.Strings.chooseName
         label.textAlignment = .center
         label.textColor = .lightGray
         label.numberOfLines = 2
@@ -36,7 +36,7 @@ class RegistrationViewController: UIViewController, UITextFieldDelegate {
         textField.layer.borderColor = UIColor.lightGray.cgColor
         textField.layer.cornerRadius = 5
         textField.attributedPlaceholder = NSAttributedString(
-            string: "Name",
+            string: Constants.Strings.name,
             attributes: [NSAttributedString.Key.foregroundColor: UIColor.lightGray]
         )
         textField.textColor = .label
@@ -57,7 +57,7 @@ class RegistrationViewController: UIViewController, UITextFieldDelegate {
         textField.layer.borderColor = UIColor.lightGray.cgColor
         textField.layer.cornerRadius = 5
         textField.attributedPlaceholder = NSAttributedString(
-            string: "Email address",
+            string: Constants.Strings.email,
             attributes: [NSAttributedString.Key.foregroundColor: UIColor.lightGray]
         )
         textField.textColor = .label
@@ -78,7 +78,7 @@ class RegistrationViewController: UIViewController, UITextFieldDelegate {
         textField.layer.borderColor = UIColor.lightGray.cgColor
         textField.layer.cornerRadius = 5
         textField.attributedPlaceholder = NSAttributedString(
-            string: "Password",
+            string: Constants.Strings.passwordPlaceholder,
             attributes: [NSAttributedString.Key.foregroundColor: UIColor.lightGray]
         )
         textField.textColor = .label
@@ -93,7 +93,7 @@ class RegistrationViewController: UIViewController, UITextFieldDelegate {
     private lazy var registrationButton: UIButton = {
         let button = UIButton()
         button.backgroundColor = .blue
-        button.setTitle("Sign up", for: .normal)
+        button.setTitle(Constants.Strings.signUp, for: .normal)
         button.setTitleColor(.white, for: .normal)
         button.titleLabel?.font = .systemFont(ofSize: 18)
         button.layer.cornerRadius = 5
@@ -103,14 +103,14 @@ class RegistrationViewController: UIViewController, UITextFieldDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.title = "Create new username"
+        self.title = Constants.Strings.newUser
         nameTextField.delegate = self
         emailTextField.delegate = self
         passwordTextField.delegate = self
         registrationButton.addTarget(self,
                                      action: #selector(didTapRegistration),
                                      for: . touchUpInside)
-        navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Back",
+        navigationItem.leftBarButtonItem = UIBarButtonItem(title: Constants.Strings.back,
                                                            style: .done,
                                                            target: self,
                                                            action: #selector(didTapBack))
@@ -119,10 +119,10 @@ class RegistrationViewController: UIViewController, UITextFieldDelegate {
     }
     
     private func alertLogin(error: String) {
-        let alertView = UIAlertController(title: "Uh - oh",
+        let alertView = UIAlertController(title: Constants.Strings.uhOh,
                                           message: error,
                                           preferredStyle: .alert)
-        alertView.addAction(UIAlertAction(title: "Dismiss",
+        alertView.addAction(UIAlertAction(title: Constants.Strings.cancel,
                                           style: .cancel,
                                           handler: nil ))
         present(alertView, animated: true)
@@ -132,11 +132,11 @@ class RegistrationViewController: UIViewController, UITextFieldDelegate {
         guard let username = nameTextField.text,
               let email = emailTextField.text,
               let password = passwordTextField.text else { return }
-        let minLength = Constants.String.minLength
+        let minLength = Constants.Strings.minLength
         if password.isEmpty || email.isEmpty || username.isEmpty {
-            return alertLogin(error: "Fill in all fields")}
+            return alertLogin(error: Constants.Strings.errorAllFields)}
         else if password.count < minLength {
-            return alertLogin(error: "Lenght of password is less than \(minLength) charcters")
+            return alertLogin(error: Constants.Strings.errorPassword)
         }
         AuthManager.shared.registrationNewUser(userName: username,
                                                email: email,
@@ -202,12 +202,12 @@ class RegistrationViewController: UIViewController, UITextFieldDelegate {
         switch textField {
         case nameTextField:
             emailTextField.becomeFirstResponder()
-            helperLabel.text = "Enter your email"
-            self.title = "Enter your email"
+            helperLabel.text = Constants.Strings.email
+            self.title = Constants.Strings.email
         case emailTextField:
             passwordTextField.becomeFirstResponder()
-            helperLabel.text = "We can remember the password, so you won't need to enter it on your iCloud devices."
-            self.title = "Сreate new password"
+            helperLabel.text = Constants.Strings.newPassword
+            self.title = Constants.Strings.newPassword
         case passwordTextField:
             passwordTextField.resignFirstResponder()
             self.didTapRegistration()
