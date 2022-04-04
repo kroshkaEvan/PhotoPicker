@@ -12,4 +12,14 @@ extension String {
     func safeDatabaseKey() -> String {
         return self.replacingOccurrences(of: ".", with: "-").replacingOccurrences(of: "@", with: "-")
     }
+    
+    func localizated() -> String {
+        return NSLocalizedString(self,
+                                 tableName: "Localization",
+                                 bundle: .main,
+                                 value: self,
+                                 comment: self)
+    }
 }
+
+

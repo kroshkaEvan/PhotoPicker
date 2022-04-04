@@ -11,4 +11,3 @@ struct SearchResult: Decodable {
     let total: Int
     let results: [UnsplashImage]
 }
-

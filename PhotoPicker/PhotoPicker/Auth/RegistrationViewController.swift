@@ -114,7 +114,7 @@ class RegistrationViewController: UIViewController, UITextFieldDelegate {
                                                            style: .done,
                                                            target: self,
                                                            action: #selector(didTapBack))
-        navigationItem.leftBarButtonItem?.tintColor = .label
+        navigationItem.leftBarButtonItem?.tintColor = .darkGray
         setupVC()
     }
     
@@ -141,16 +141,9 @@ class RegistrationViewController: UIViewController, UITextFieldDelegate {
         AuthManager.shared.registrationNewUser(userName: username,
                                                email: email,
                                                password: password) { [weak self] successfulRegistration in
-//            DispatchQueue.main.async {
-//                if successfulRegistration {
-                    let mainVC = MainViewController()
-                    mainVC.modalPresentationStyle = .fullScreen
-                    self?.present(mainVC, animated: true)
-//                } else {
-//                    self?.alertLogin(error: "The mail is already busy")
-//                    print("error registration")
-//                }
-//            }
+            let mainVC = MainViewController()
+            mainVC.modalPresentationStyle = .fullScreen
+            self?.present(mainVC, animated: true)
         }
     }
     
@@ -162,7 +155,7 @@ class RegistrationViewController: UIViewController, UITextFieldDelegate {
         view.backgroundColor = .systemBackground
         [imageView, helperLabel, nameTextField, emailTextField, passwordTextField, registrationButton].forEach { view.addSubview($0) }
         imageView.topAnchor.constraint(equalToSystemSpacingBelow: view.safeAreaLayoutGuide.topAnchor,
-                                       multiplier: 25).isActive = true
+                                       multiplier: 5).isActive = true
         imageView.centerXAnchor.constraint(equalTo: view.safeAreaLayoutGuide.centerXAnchor).isActive = true
         imageView.widthAnchor.constraint(equalTo: view.widthAnchor,
                                          multiplier: 0.2).isActive = true
@@ -172,9 +165,9 @@ class RegistrationViewController: UIViewController, UITextFieldDelegate {
                                          constant: 30).isActive = true
         helperLabel.centerXAnchor.constraint(equalTo: view.safeAreaLayoutGuide.centerXAnchor).isActive = true
         helperLabel.widthAnchor.constraint(equalTo: view.safeAreaLayoutGuide.widthAnchor,
-                                             multiplier: 0.9).isActive = true
+                                           multiplier: 0.9).isActive = true
         helperLabel.heightAnchor.constraint(equalTo: view.safeAreaLayoutGuide.heightAnchor,
-                                              multiplier: 0.1).isActive = true
+                                            multiplier: 0.1).isActive = true
         nameTextField.topAnchor.constraint(equalTo: helperLabel.bottomAnchor,
                                            constant: 5).isActive = true
         nameTextField.centerXAnchor.constraint(equalTo: view.safeAreaLayoutGuide.centerXAnchor).isActive = true

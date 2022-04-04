@@ -148,7 +148,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     }
     
     private func setupVC() {
-        view.backgroundColor = .systemBackground
+        view.backgroundColor = .white
         [imageView, emailOrNameTextField, passwordTextField, loginButton, registrationButton].forEach { view.addSubview($0) }
 
         imageView.topAnchor.constraint(equalToSystemSpacingBelow: view.safeAreaLayoutGuide.topAnchor,

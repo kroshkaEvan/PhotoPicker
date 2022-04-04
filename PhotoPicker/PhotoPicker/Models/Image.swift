@@ -9,16 +9,11 @@ import UIKit
 import Foundation
 
 class Image: Codable {
-    static let shared = Image()
-    static var images = [Image]()
-    static var unsplashImages = [UnsplashImage]()
-    static var selectedImages = [UIImage]()
-    static var numberOfItemsInSection = 2
     var imagePath: String?
     
     init() {}
     
-    public enum CodingKeys: String, CodingKey {
+    enum CodingKeys: String, CodingKey {
         case imagePath
     }
     

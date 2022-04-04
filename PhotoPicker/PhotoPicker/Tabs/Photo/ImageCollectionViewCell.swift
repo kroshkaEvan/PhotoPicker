@@ -25,6 +25,7 @@ class ImageCollectionViewCell: UICollectionViewCell {
     }
     
     override func layoutSubviews() {
+        super.layoutSubviews()
         imageView.frame = bounds
     }
     

@@ -17,7 +17,7 @@ class RandomViewController: UIViewController, UIGestureRecognizerDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .lightGray
+        view.backgroundColor = .white
         alertSwipe()
         setupNavigationBarItem()
         setupSwipeGesture()
@@ -25,14 +25,10 @@ class RandomViewController: UIViewController, UIGestureRecognizerDelegate {
     }
     
     private func setupSwipeGesture() {
-        let swipeLeft = UISwipeGestureRecognizer(target: self,
+        let swipeRecognizer = UISwipeGestureRecognizer(target: self,
                                                  action: #selector(swipeAction))
-        let swipeRight = UISwipeGestureRecognizer(target: self,
-                                                  action: #selector(swipeAction))
-        swipeLeft.direction = .left
-        swipeRight.direction = .right
-        view.addGestureRecognizer(swipeLeft)
-        view.addGestureRecognizer(swipeRight)
+        swipeRecognizer.direction = [.left, .right]
+        view.addGestureRecognizer(swipeRecognizer)
     }
     
     private func setupNavigationBarItem() {
@@ -40,7 +36,7 @@ class RandomViewController: UIViewController, UIGestureRecognizerDelegate {
                                                          style: .done,
                                                          target: self,
                                                          action: #selector(didTapLoad))
-        rightBarButton.tintColor = .systemBackground
+        rightBarButton.tintColor = .darkGray
         navigationItem.setRightBarButtonItems([rightBarButton],
                                               animated: true)
     }
@@ -64,8 +60,7 @@ class RandomViewController: UIViewController, UIGestureRecognizerDelegate {
     }
     
     @objc private func didTapLoad() {
-        if imageView.image != nil {
-            guard let image = imageView.image else {return}
+        if let image = imageView.image {
             let activityVC = UIActivityViewController(activityItems: [image],
                                                    applicationActivities: nil)
             present(activityVC, animated: true)

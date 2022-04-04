@@ -28,8 +28,9 @@ class UnsplashImageCell: UICollectionViewCell {
         return imageView
     }()
     
-    var unsplashImage: UnsplashImage! {
+    var unsplashImage: UnsplashImage? {
         didSet {
+            guard let unsplashImage = unsplashImage else {return}
             let photoURL = unsplashImage.urls["regular"]
             guard let imageUrl = photoURL,
                     let url = URL(string: imageUrl) else { return }

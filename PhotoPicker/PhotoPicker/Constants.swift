@@ -41,6 +41,7 @@ class Constants {
         static let tabBarImageProfileFill = UIImage(systemName: "person.fill")
         
         static let checkMark = UIImage(systemName: "checkmark.circle.fill")
+        static let hurts = UIImage(systemName: "heart.fill")
 
     }
     

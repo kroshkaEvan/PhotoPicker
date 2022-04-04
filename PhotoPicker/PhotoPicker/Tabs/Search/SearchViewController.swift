@@ -10,7 +10,9 @@ import Kingfisher
 
 class SearchViewController: UIViewController {
     private var timer: Timer?
-
+    private var unsplashImages = [UnsplashImage]()
+    private var selectedImages = [UIImage]()
+    
     private lazy var collectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
         layout.sectionInset = UIEdgeInsets(top: Constants.Dimensions.unsplashSize,
@@ -34,7 +36,7 @@ class SearchViewController: UIViewController {
                                 forCellWithReuseIdentifier: UnsplashImageCell.reuseIdentifier)
         collectionView.contentInsetAdjustmentBehavior = .automatic
         collectionView.allowsMultipleSelection = true
-        collectionView.backgroundColor = .lightGray
+        collectionView.backgroundColor = .white
         collectionView.translatesAutoresizingMaskIntoConstraints = false
         return collectionView
     }()
@@ -44,8 +46,9 @@ class SearchViewController: UIViewController {
         searchController.hidesNavigationBarDuringPresentation = false
         searchController.obscuresBackgroundDuringPresentation = false
         navigationItem.hidesSearchBarWhenScrolling = false
-        navigationItem.searchController = searchController
         searchController.searchBar.delegate = self
+        searchController.searchBar.tintColor = .darkGray
+        searchController.searchBar.showsCancelButton = false
         searchController.searchBar.placeholder = "Please enter search term above..."
         searchController.searchBar.translatesAutoresizingMaskIntoConstraints = false
         return searchController
@@ -60,7 +63,7 @@ class SearchViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .lightGray
+        view.backgroundColor = .white
         collectionView.dataSource = self
         collectionView.delegate = self
         setupView()
@@ -85,19 +88,20 @@ class SearchViewController: UIViewController {
         let rightBarButtonItemAdd = UIBarButtonItem(barButtonSystemItem: .action,
                                                         target: self,
                                                         action: #selector(didTapAdd))
-        navigationItem.titleView = searchController.searchBar
+        navigationItem.searchController = searchController
+        rightBarButtonItemAdd.tintColor = .darkGray
         navigationItem.rightBarButtonItems = [rightBarButtonItemAdd]
     }
     
     private func refresh() {
-        Image.selectedImages.removeAll()
+        self.selectedImages.removeAll()
         self.collectionView.selectItem(at: nil,
                                        animated: true,
                                        scrollPosition: [])
     }
     
     @objc func didTapAdd(sender: UIBarButtonItem) {
-        let activityVC = UIActivityViewController(activityItems: Image.selectedImages,
+        let activityVC = UIActivityViewController(activityItems: self.selectedImages,
                                                        applicationActivities: nil)
         activityVC.completionWithItemsHandler = { _, bool, _, _ in
             if bool {
@@ -112,14 +116,14 @@ class SearchViewController: UIViewController {
 
 extension SearchViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return Image.unsplashImages.count
+        return self.unsplashImages.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: UnsplashImageCell.reuseIdentifier,
                                                       for: indexPath)
         if let cell = cell as? UnsplashImageCell {
-            cell.unsplashImage = Image.unsplashImages[indexPath.item]
+            cell.unsplashImage = self.unsplashImages[indexPath.item]
         }
         return cell
     }
@@ -127,16 +131,15 @@ extension SearchViewController: UICollectionViewDelegate, UICollectionViewDataSo
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if let cell = collectionView.cellForItem(at: indexPath) as? UnsplashImageCell {
             guard let image = cell.imageView.image else { return }
-            Image.selectedImages.append(image)
+            self.selectedImages.append(image)
         }
     }
     
     func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
-        if let cell = collectionView.cellForItem(at: indexPath) as? UnsplashImageCell {
-            guard let image = cell.imageView.image else { return }
-            if let index = Image.selectedImages.firstIndex(of: image) {
-                Image.selectedImages.remove(at: index)
-            }
+        if let cell = collectionView.cellForItem(at: indexPath) as? UnsplashImageCell,
+           let image = cell.imageView.image,
+           let index = self.selectedImages.firstIndex(of: image)  {
+            self.selectedImages.remove(at: index)
         }
     }
 }
@@ -149,7 +152,7 @@ extension SearchViewController: UISearchBarDelegate {
             NetworkManager.shared.fetchImages(searchTerm: searchText) { [weak self] searchResult in
                 guard let fetchedPhotos = searchResult else { return }
                 self?.activityIndicator.stopAnimating()
-                Image.unsplashImages = fetchedPhotos.results
+                self?.unsplashImages = fetchedPhotos.results
                 self?.collectionView.reloadData()
                 self?.refresh()
             }
