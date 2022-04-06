@@ -1,6 +1,6 @@
 Приложение UnsplashPhoto создано для возможности поиска и загрузки фото с ресурса https://unsplash.com/.
 
-Приложение создано архитектуры Cocoa MVC и API (https://unsplash.com/documentation#search-photos). Весь пользовательский интерфейс создан программно, без использования сторонних фреймворков. Локализировано на русский и английский языки. Аутентификация сделана при помощи Firebase. 
+Приложение создано при помощи архитектуры Cocoa MVC и API (https://unsplash.com/documentation#search-photos). Весь пользовательский интерфейс создан программно, без использования сторонних фреймворков. Локализировано на русский и английский языки. Аутентификация сделана при помощи Firebase. 
 
 The UnsplashPhoto was created to be able to view all Belarusbank ATMs on the map and building a route to them. ATMs are presented in two types: a map of ATMs with their description and a list of ATMs with the ability to search by cities of Belarus. Localized in Russian and English. Authentication was created using Firebase. 
 
